@@ -3,7 +3,7 @@ jobs:
   build-job:
     docker:
       - image: circleci/node:7.10
-    working_directory: ~/repo
+    working_directory: ./
     steps:
       - checkout
       - restore_cache:
@@ -19,11 +19,11 @@ jobs:
   deploy-job:
     docker:
       - image: circleci/node:7.10
-    working_directory: ~/repo
+    working_directory: ./
     steps:
       - run:
           name: Run setup script
-          command: bash setup-heroku.sh
+          command: bash .circleci/setup-heroku.sh
       - add_ssh_keys:
           fingerprints:
             - "5a:17:77:cd:28:f4:8a:ca:7d:b0:bd:cf:ec:a1:20:d2"
