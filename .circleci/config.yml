@@ -3,7 +3,7 @@ jobs:
   build-job:
     docker:
       - image: circleci/node:7.10
-    working_directory: 
+    working_directory: ./
     steps:
       - checkout
       - restore_cache:
@@ -19,7 +19,7 @@ jobs:
   deploy-job:
     docker:
       - image: circleci/node:7.10
-    working_directory: 
+    working_directory: ./
     steps:
       - run:
           name: Run setup script
